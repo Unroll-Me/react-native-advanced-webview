@@ -3,7 +3,7 @@ import { WebView, UIManager } from 'react-native';
 import PropTypes from 'prop-types';
 import createReactNativeComponentClass from 'react-native/Libraries/Renderer/shims/createReactNativeComponentClass';
 
-export default class extends WebView {
+class AdvancedWebView extends WebView {
 
     static displayName = 'AdvancedWebView';
 
@@ -107,3 +107,5 @@ const RNAdvancedWebView = createReactNativeComponentClass({
     },
     uiViewClassName: 'RNAdvancedWebView'
 });
+
+export { AdvancedWebView }
