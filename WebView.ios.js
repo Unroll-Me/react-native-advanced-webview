@@ -1,8 +1,8 @@
-import React, { PropTypes, cloneElement } from 'react';
+import React, { PropTypes, cloneElement, Component } from 'react';
 import { WebView, UIManager } from 'react-native';
 import createReactNativeComponentClass from 'react-native/Libraries/Renderer/shims/createReactNativeComponentClass';
 
-class AdvancedWebView extends WebView {
+class AdvancedWebView extends Component {
 
   static displayName = 'AdvancedWebView';
 
@@ -84,7 +84,7 @@ class AdvancedWebView extends WebView {
     const wrapper = super.render();
     const [webview, ...children] = wrapper.props.children;
     const { hideAccessory, allowFileAccessFromFileURLs, keyboardDisplayRequiresUserAction,
-      disableKeyboardAdjust} = this.props;
+       disableKeyboardAdjust} = this.props;
 
     const advancedWebview = (
       <RNAdvancedWebView
@@ -101,6 +101,7 @@ class AdvancedWebView extends WebView {
   }
 }
 
+/*
 const RNAdvancedWebView = createReactNativeComponentClass({
   validAttributes: {
     ...UIManager.RCTWebView.validAttributes,
@@ -111,5 +112,6 @@ const RNAdvancedWebView = createReactNativeComponentClass({
   },
   uiViewClassName: 'RNAdvancedWebView'
 });
+*/
 
 export { AdvancedWebView }
