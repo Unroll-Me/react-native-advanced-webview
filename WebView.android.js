@@ -11,7 +11,11 @@ class AdvancedWebView extends WebView {
         ...WebView.propTypes,
         keyboardDisplayRequiresUserAction: PropTypes.bool,
         allowFileAccessFromFileURLs: PropTypes.bool,
-        hideAccessory: PropTypes.bool
+        hideAccessory: PropTypes.bool,
+        builtInZoomControls: PropTypes.bool,
+        displayZoomControls: PropTypes.bool,
+        loadWithOverviewMode: PropTypes.bool,
+        setUseWideViewPort: PropTypes.bool
     };
 
     goForward = () => {
@@ -82,7 +86,7 @@ class AdvancedWebView extends WebView {
     render() {
         const wrapper = super.render();
         const [webview,...children] = wrapper.props.children;
-        const { hideAccessory, allowFileAccessFromFileURLs, keyboardDisplayRequiresUserAction } = this.props;
+        const { hideAccessory, allowFileAccessFromFileURLs, keyboardDisplayRequiresUserAction, builtInZoomControls, displayZoomControls, loadWithOverviewMode, setUseWideViewPort } = this.props;
 
         const advancedWebview = (
             <RNAdvancedWebView
@@ -91,6 +95,10 @@ class AdvancedWebView extends WebView {
                 allowFileAccessFromFileURLs={allowFileAccessFromFileURLs}
                 keyboardDisplayRequiresUserAction={keyboardDisplayRequiresUserAction}
                 hideAccessory={hideAccessory}
+                builtInZoomControls={builtInZoomControls}
+                displayZoomControls={displayZoomControls} 
+                loadWithOverviewMode={loadWithOverviewMode}
+                setUseWideViewPort={setUseWideViewPort}
             />
         );
 
@@ -103,7 +111,11 @@ const RNAdvancedWebView = createReactNativeComponentClass({
         ...UIManager.RCTWebView.validAttributes,
         allowFileAccessFromFileURLs: true,
         hideAccessory: true,
-        keyboardDisplayRequiresUserAction: true
+        keyboardDisplayRequiresUserAction: true,
+        builtInZoomControls: true,
+        displayZoomControls: true,
+        loadWithOverviewMode: true,
+        setUseWideViewPort: true
     },
     uiViewClassName: 'RNAdvancedWebView'
 });

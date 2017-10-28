@@ -170,10 +170,6 @@ public class AdvancedWebViewManager extends ReactWebViewManager {
 
         reactContext.addLifecycleEventListener(webView);
         mWebViewConfig.configWebView(webView);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setDisplayZoomControls(true);
-        webView.getSettings().setLoadWithOverviewMode(true);
-        webView.getSettings().setUseWideViewPort(true);
 
         // Fixes broken full-screen modals/galleries due to body height being 0.
         webView.setLayoutParams(
@@ -260,4 +256,23 @@ public class AdvancedWebViewManager extends ReactWebViewManager {
         ((AdvancedWebView) root).setKeyboardDisplayRequiresUserAction(keyboardDisplayRequiresUserAction);
     }
 
+    @ReactProp(name = "builtInZoomControls")
+    public void setBuiltInZoomControls(WebView root, boolean builtInZoomControls) {
+        ((AdvancedWebView) root).getSettings().setBuiltInZoomControls(builtInZoomControls);
+    }
+
+    @ReactProp(name = "displayZoomControls")
+    public void setDisplayZoomControls(WebView root, boolean displayZoomControls) {
+        ((AdvancedWebView) root).getSettings().setDisplayZoomControls(displayZoomControls);
+    }
+
+    @ReactProp(name = "loadWithOverviewMode")
+    public void setLoadWithOverviewMode(WebView root, boolean loadWithOverviewMode) {
+        ((AdvancedWebView) root).getSettings().setLoadWithOverviewMode(loadWithOverviewMode);
+    }
+
+    @ReactProp(name = "setUseWideViewPort")
+    public void setUseWideViewPort(WebView root, boolean useWideViewPort) {
+        ((AdvancedWebView) root).getSettings().setLoadWithOverviewMode(useWideViewPort);
+    }
 }
